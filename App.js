@@ -6,9 +6,10 @@ import {
   View,
   TouchableOpacity,
   SafeAreaView,
-  StatusBar,
   Alert,
+  Platform,
 } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   const [gameMode, setGameMode] = useState(null); // null, 'pvp', 'pvc'
@@ -177,7 +178,7 @@ export default function App() {
   if (gameMode === null) {
     return (
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar style="dark" />
         <View style={styles.modeSelectionContainer}>
           <Text style={styles.title}>Tic Tac Toe</Text>
           <Text style={styles.subtitle}>Choose Game Mode</Text>
@@ -208,7 +209,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar style="dark" />
       <View style={styles.gameContainer}>
         <View style={styles.header}>
           <Text style={styles.title}>Tic Tac Toe</Text>
@@ -280,7 +281,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f0f0f0',
-    paddingTop: StatusBar.currentHeight || 0,
   },
   modeSelectionContainer: {
     flex: 1,
@@ -291,6 +291,7 @@ const styles = StyleSheet.create({
   gameContainer: {
     flex: 1,
     padding: 20,
+    justifyContent: 'center',
   },
   header: {
     alignItems: 'center',
